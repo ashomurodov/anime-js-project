@@ -1,0 +1,53 @@
+:root {
+    --g1: rgb(98, 0, 234);
+    --g2: rgb(236, 64, 122);
+  }
+  
+  body {
+    animation: bg-pan 10s linear infinite;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* background-color: rgb(20, 20, 20); */
+    overflow: hidden;
+    background: linear-gradient(to right, var(--g1), var(--g2), var(--g1));
+    background-size: 200%;
+  }
+  
+  @keyframes bg-pan {
+    from {
+      background-position: 0% center;
+    }
+    to {
+      background-position: 200% center;
+    }
+  }
+  
+  #tiles {
+    width: 100vw;
+    height: 100vh;
+  
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-rows: repeat(var(--rows), 1fr);
+  }
+  
+  .tile {
+    position: relative;
+  }
+  
+  
+  .tile:before {
+    display: inline-block;
+    background-color: rgb(20, 20, 20);
+    content: "";
+    /* height: calc(100% - 1px);
+    width: calc(100% - 1px); */
+    position: absolute;
+    inset: 0.5px;
+  }
+  
+  .tile:hover {
+    opacity: 0.95;
+  }
+  
